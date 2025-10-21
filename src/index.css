@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans;
+    background: radial-gradient(1200px 600px at 10% 10%, rgba(255, 94, 247, 0.18), transparent 40%),
+                radial-gradient(900px 500px at 90% 20%, rgba(0, 229, 255, 0.16), transparent 40%),
+                radial-gradient(1000px 600px at 50% 100%, rgba(255, 200, 87, 0.14), transparent 40%),
+                #0f1020;
+    color: #e8eaf6;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+}
+
+@layer components {
+  /* Frosted glass utility */
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+  }
+
+  /* Elevated glossy card */
+  .card-glossy {
+    background: linear-gradient(180deg, rgba(255,255,255,0.24) 0%, rgba(255,255,255,0.12) 100%);
+    border: 1px solid rgba(255,255,255,0.24);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .btn-primary {
+    @apply text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 shadow-lg;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 48%, #ec4899 100%);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .btn-primary:hover { transform: translateY(-1px) scale(1.01); filter: brightness(1.05); }
+  .btn-primary:active { transform: translateY(0); }
+  
+  .btn-secondary {
+    @apply bg-gray-200/70 hover:bg-gray-300/80 text-gray-800 font-medium py-2 px-4 rounded-lg transition-all duration-200;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-transparent bg-white/70 text-gray-800 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all duration-300 shadow-sm;
+  }
+  
+  .message-bubble {
+    @apply max-w-xs lg:max-w-md px-4 py-3 rounded-2xl shadow-md;
+  }
+  
+  .message-sent {
+    @apply text-white ml-auto;
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    box-shadow: 0 10px 20px rgba(124, 58, 237, 0.35);
+    animation: msg-pop 280ms ease-out;
+  }
+  
+  .message-received {
+    @apply bg-white/80 text-gray-900 border border-gray-200/60;
+    backdrop-filter: blur(6px);
+    animation: msg-pop 280ms ease-out;
+  }
+
+  .message-time {
+    @apply text-xs mt-1 opacity-80;
+  }
+
+  .sidebar-glass {
+    @apply h-full; /* container remains */
+    background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-right: 1px solid rgba(255,255,255,0.16);
+  }
+
+  .chat-bg {
+    background-image: url('./assets/bgg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  /* Soft entrance animations */
+  @keyframes msg-pop {
+    0% { transform: translateY(6px) scale(0.98); opacity: 0; }
+    60% { transform: translateY(-2px) scale(1.01); opacity: 1; }
+    100% { transform: translateY(0) scale(1); }
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-up { animation: fade-up 500ms ease-out both; }
+  .animate-fade-in { animation: fade-up 420ms ease-out both; }
+}
