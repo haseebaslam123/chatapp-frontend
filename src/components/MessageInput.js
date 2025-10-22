@@ -102,35 +102,7 @@ const MessageInput = ({ onSendMessage, onUploadFile, emojis }) => {
           )}
         </div>
 
-        {/* Upload Button */}
-        <div>
-          <input
-            ref={fileInputRef}
-            type="file"
-            className="hidden"
-            onChange={(e) => {
-              const file = e.target.files && e.target.files[0];
-              if (file) {
-                setSelectedFile(file);
-                if (file.type && file.type.startsWith('image/')) {
-                  setPreviewUrl(URL.createObjectURL(file));
-                } else {
-                  setPreviewUrl('');
-                }
-              }
-              e.target.value = '';
-            }}
-          />
-          <button
-            type="button"
-            onClick={() => fileInputRef.current && fileInputRef.current.click()}
-            className="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full transition-colors duration-200"
-            aria-label="Attach file"
-            title="Attach file"
-          >
-            📎
-          </button>
-        </div>
+        
 
         {/* Message Input */}
         
