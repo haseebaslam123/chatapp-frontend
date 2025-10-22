@@ -89,7 +89,7 @@
   }
 
   .chat-bg {
-    background-image: url('./assets/bgg.jpg');
+    
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
